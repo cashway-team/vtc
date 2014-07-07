@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="h2DataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="url"
+                  value="jdbc:h2:tcp://127.0.0.1/~/vtc" />
+        <property name="driverClassName" value="org.h2.Driver" />
+        <property name="username" value="mmzz" />
+        <property name="password" value="mmzz" />
+
+        <property name="initialSize" value="4" />
+        <property name="maxActive" value="260" />
+        <property name="maxIdle" value="20" />
+        <property name="minIdle" value="5" />
+    </bean>
+
+    <!-- 配置sessionFactory -->
+    <bean id="h2SessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="h2DataSource"/>
+        <property name="packagesToScan" value="com.cashway"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.jdbc.fetch_size">10</prop>
+                <prop key="hibernate.jdbc.batch_size">30</prop>
+                <!--<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>-->
+                <!-- <prop key="hibernate.hbm2ddl.auto">update</prop>  -->
+            </props>
+        </property>
+        <!--the transaction configuration must be accordant with iBatis-->
+        <!--<property name="useTransactionAwareDataSource" value="true"/>-->
+    </bean>
+
+    <bean id="h2TxManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="h2SessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="h2TxManager"
+                          proxy-target-class="true"/>
+
+</beans>
