@@ -15,7 +15,7 @@
     <context:component-scan base-package="com.cashway" />
 
 	<import resource="applicationContext-persistence.xml"/>
-	<!--<import resource="applicationContext-h2.xml"/>-->
+	<import resource="applicationContext-h2.xml"/>
 	<import resource="applicationContext-shiro.xml"/>
 
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

@@ -46,8 +46,6 @@
                 <!-- <prop key="hibernate.hbm2ddl.auto">update</prop>  -->
             </props>
         </property>
-        <!--the transaction configuration must be accordant with iBatis-->
-        <!--<property name="useTransactionAwareDataSource" value="true"/>-->
     </bean>
 
     <bean id="h2TxManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
