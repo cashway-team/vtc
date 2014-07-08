@@ -21,7 +21,6 @@ public class AgentsType extends BaseEntity {
     @Column(name = "DESC", nullable = false)
     private String desc;
 
-    @ManyToMany(mappedBy = "agentsTypes")
     private Set<ArtificialAgents> artificialAgents = new HashSet<ArtificialAgents>();
 
     public String getNo() {
@@ -48,6 +47,7 @@ public class AgentsType extends BaseEntity {
         this.desc = desc;
     }
 
+    @ManyToMany(mappedBy = "agentsTypes")
     public Set<ArtificialAgents> getArtificialAgents() {
         return artificialAgents;
     }

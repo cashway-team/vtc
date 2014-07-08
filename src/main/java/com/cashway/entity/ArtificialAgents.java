@@ -9,7 +9,7 @@ import java.util.Set;
  * Created by mmzz on 2014/6/16.
  */
 @Entity
-@Table(name = "ARTIFICIAL_AGENTS")
+@Table(name = "artificial_agents")
 @SequenceGenerator(name = "sequenceGenerator", sequenceName = "SQ_ARTIFICIAL_AGENTS")
 public class ArtificialAgents extends BaseEntity {
 
@@ -28,12 +28,8 @@ public class ArtificialAgents extends BaseEntity {
     @Column(name = "LAST_LOGIN_DATE", nullable = false)
     private Date lastLoginDate;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinTable(name = "REL_AGENTS_TYPE")
     private Set<AgentsType> agentsTypes = new HashSet<AgentsType>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinTable(name = "REL_AGENTS_SERVICE_TYPE")
     private Set<AgentsServiceType> agentsServiceTypes = new HashSet<AgentsServiceType>();
 
     public String getStatus() {
@@ -60,6 +56,8 @@ public class ArtificialAgents extends BaseEntity {
         this.lastLoginDate = lastLoginDate;
     }
 
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "rel_agents_type")
     public Set<AgentsType> getAgentsTypes() {
         return agentsTypes;
     }
@@ -82,6 +80,8 @@ public class ArtificialAgents extends BaseEntity {
         this.agentsTypes = agentsTypes;
     }
 
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinTable(name = "rel_agents_service_type")
     public Set<AgentsServiceType> getAgentsServiceTypes() {
         return agentsServiceTypes;
     }

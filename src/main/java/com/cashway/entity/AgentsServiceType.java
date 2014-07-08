@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by mmzz on 2014/6/24.
  */
 @Entity
-@Table(name = "AGENTS_SERVICE_TYPE")
+@Table(name = "agents_service_type")
 @SequenceGenerator(name = "sequenceGenerator", sequenceName = "SQ_AGENTS_SERVICE_TYPE")
 public class AgentsServiceType extends BaseEntity {
 
@@ -27,7 +27,6 @@ public class AgentsServiceType extends BaseEntity {
     @Column(name = "DESC", nullable = false)
     private String desc;
 
-    @ManyToMany(mappedBy = "agentsServiceTypes")
     private Set<ArtificialAgents> artificialAgents = new HashSet<ArtificialAgents>();
 
     public String getNo() {
@@ -54,6 +53,7 @@ public class AgentsServiceType extends BaseEntity {
         this.desc = desc;
     }
 
+    @ManyToMany(mappedBy = "agentsServiceTypes")
     public Set<ArtificialAgents> getArtificialAgents() {
         return artificialAgents;
     }
