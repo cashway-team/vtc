@@ -8,17 +8,27 @@
             http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <bean id="h2DataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="url"
-                  value="jdbc:h2:tcp://127.0.0.1/~/vtc" />
-        <property name="driverClassName" value="org.h2.Driver" />
-        <property name="username" value="mmzz" />
-        <property name="password" value="mmzz" />
+    <bean id="h2DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${h2.jdbc.driver}" />
+        <property name="jdbcUrl" value="${h2.jdbc.url}" />
+        <property name="user" value="${h2.jdbc.username}" />
+        <property name="password" value="${h2.jdbc.password}" />
+        <property name="initialPoolSize" value="${connection_pools.initial_pool_size}" />
+        <property name="minPoolSize" value="${connection_pools.min_pool_size}" />
+        <property name="maxPoolSize" value="${connection_pools.max_pool_size}" />
+        <property name="maxIdleTime" value="${connection_pools.max_idle_time}" />
+        <property name="acquireIncrement" value="${connection_pools.acquire_increment}" />
+        <property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />
+        <!--<property name="url"-->
+                  <!--value="jdbc:h2:tcp://127.0.0.1/~/vtc" />-->
+        <!--<property name="driverClassName" value="org.h2.Driver" />-->
+        <!--<property name="username" value="mmzz" />-->
+        <!--<property name="password" value="mmzz" />-->
 
-        <property name="initialSize" value="4" />
-        <property name="maxActive" value="260" />
-        <property name="maxIdle" value="20" />
-        <property name="minIdle" value="5" />
+        <!--<property name="initialSize" value="4" />-->
+        <!--<property name="maxActive" value="260" />-->
+        <!--<property name="maxIdle" value="20" />-->
+        <!--<property name="minIdle" value="5" />-->
     </bean>
 
     <!-- 配置sessionFactory -->
@@ -27,7 +37,7 @@
         <property name="packagesToScan" value="com.cashway"/>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.dialect">${h2.hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.jdbc.fetch_size">10</prop>
