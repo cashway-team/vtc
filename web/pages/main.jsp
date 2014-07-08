@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>${message("admin.main.title")} - Powered By SHOP++</title>
+    <title><%--${message("admin.main.title")} - Powered By SHOP++--%></title>
     <meta name="author" content="SHOP++ Team" />
     <meta name="copyright" content="SHOP++" />
     <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
@@ -61,84 +61,29 @@
     <th>
         <div id="nav" class="nav">
             <ul>
-                [#list ["admin:product", "admin:productCategory", "admin:parameterGroup", "admin:attribute", "admin:specification", "admin:brand", "admin:productNotify"] as permission]
-                [@shiro.hasPermission name = permission]
+                <shiro:hasPermission name="admin:admin" />
                 <li>
-                    <a href="#product">${message("admin.main.productNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                [#list ["admin:order", "admin:payment", "admin:refunds", "admin:shipping", "admin:returns", "admin:deliveryCenter", "admin:deliveryTemplate"] as permission]
-                [@shiro.hasPermission name = permission]
-                <li>
-                    <a href="#order">${message("admin.main.orderNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                [#list ["admin:member", "admin:memberRank", "admin:memberAttribute", "admin:review", "admin:consultation"] as permission]
-                [@shiro.hasPermission name = permission]
-                <li>
-                    <a href="#member">${message("admin.main.memberNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                [#list ["admin:navigation", "admin:article", "admin:articleCategory", "admin:tag", "admin:friendLink", "admin:adPosition", "admin:ad", "admin:template", "admin:cache", "admin:static", "admin:index"] as permission]
-                [@shiro.hasPermission name = permission]
-                <li>
-                    <a href="#content">${message("admin.main.contentNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                [#list ["admin:promotion", "admin:coupon", "admin:seo", "admin:sitemap"] as permission]
-                [@shiro.hasPermission name = permission]
-                <li>
-                    <a href="#marketing">${message("admin.main.marketingNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                [#list ["admin:statistics", "admin:sales", "admin:salesRanking", "admin:purchaseRanking", "admin:deposit"] as permission]
-                [@shiro.hasPermission name = permission]
-                <li>
-                    <a href="#statistics">${message("admin.main.statisticsNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                [#list ["admin:setting", "admin:area", "admin:paymentMethod", "admin:shippingMethod", "admin:deliveryCorp", "admin:paymentPlugin", "admin:storagePlugin", "admin:admin", "admin:role", "admin:message", "admin:log"] as permission]
-                [@shiro.hasPermission name = permission]
-                <li>
-                    <a href="#system">${message("admin.main.systemNav")}</a>
-                </li>
-                [#break /]
-                [/@shiro.hasPermission]
-                [/#list]
-                <li>
-                    <a href="${base}/" target="_blank">${message("admin.main.home")}</a>
+                    <%--<a href="${base}/" target="_blank">${message("admin.main.home")}</a>--%>
                 </li>
             </ul>
         </div>
         <div class="link">
-            <a href="http://www.shopxx.net" target="_blank">${message("admin.main.official")}</a>|
+            <%--<a href="http://www.shopxx.net" target="_blank">${message("admin.main.official")}</a>|
             <a href="http://bbs.shopxx.net" target="_blank">${message("admin.main.bbs")}</a>|
-            <a href="http://www.shopxx.net/about.html" target="_blank">${message("admin.main.about")}</a>
+            <a href="http://www.shopxx.net/about.html" target="_blank">${message("admin.main.about")}</a>--%>
         </div>
         <div class="link">
-            <strong>[@shiro.principal /]</strong>
-            ${message("admin.main.hello")}!
+            <strong><shiro:principal /></strong>
+            <%--${message("admin.main.hello")}!
             <a href="../profile/edit.jhtml" target="iframe">[${message("admin.main.profile")}]</a>
-            <a href="../logout.jsp" target="_top">[${message("admin.main.logout")}]</a>
+            <a href="../logout.jsp" target="_top">[${message("admin.main.logout")}]</a>--%>
         </div>
     </th>
 </tr>
 <tr>
 <td id="menu" class="menu">
 <dl id="product" class="default">
-    <dt>${message("admin.main.productGroup")}</dt>
+    <%--<dt>${message("admin.main.productGroup")}</dt>
     [@shiro.hasPermission name="admin:product"]
     <dd>
     <a href="../product/list.jhtml" target="iframe">${message("admin.main.product")}</a>
@@ -421,7 +366,7 @@
     <dd>
         <a href="../log/list.jhtml" target="iframe">${message("admin.main.log")}</a>
     </dd>
-    [/@shiro.hasPermission]
+    [/@shiro.hasPermission]--%>
 </dl>
 </td>
 <td>
