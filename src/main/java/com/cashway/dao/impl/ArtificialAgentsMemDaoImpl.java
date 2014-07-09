@@ -8,11 +8,11 @@ import org.springframework.stereotype.Repository;
  * Created by mmzz on 2014/6/25.
  */
 @Repository
-public class ArtificialAgentsMemDaoImpl extends BaseDaoImpl<ArtificialAgentsMem, String>
+public class ArtificialAgentsMemDaoImpl extends MemHibernateDao
         implements ArtificialAgentsMemDao {
 
     public void save(ArtificialAgentsMem artificialAgentsMem) {
-        this.persist(artificialAgentsMem);
+        this.getHibernateTemplate().saveOrUpdate(artificialAgentsMem);
     }
 
 

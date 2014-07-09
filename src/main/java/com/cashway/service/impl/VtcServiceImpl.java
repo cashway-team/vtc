@@ -44,9 +44,11 @@ public class VtcServiceImpl implements VtcService {
         artificialAgentsMem.setCreatedDate(new Timestamp(System.currentTimeMillis()));
         artificialAgentsMemDao.save(artificialAgentsMem);
 
-        // TODO 日志
         ArtificialAgentsMemHistory artificialAgentsMemHistory = new ArtificialAgentsMemHistory();
-//        artificialAgentsMemHistoryDao.save(artificialAgentsMemHistory);
+        artificialAgentsMemHistory.setCreatedDate(new Date());
+        artificialAgentsMemHistory.setAction(ArtificialAgentsMemHistory.Action.REGISTRATION);
+        artificialAgentsMemHistory.setArtificialAgents(artificialAgents);
+        artificialAgentsMemHistoryDao.save(artificialAgentsMemHistory);
         return true;
     }
 

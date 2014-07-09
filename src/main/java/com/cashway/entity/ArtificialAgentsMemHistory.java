@@ -24,7 +24,7 @@ public class ArtificialAgentsMemHistory {
     @Column(name = "ID")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "AGENTS_ID", referencedColumnName = "ID", nullable = false)
     private ArtificialAgents artificialAgents;
 
