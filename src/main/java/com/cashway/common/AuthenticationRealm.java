@@ -12,8 +12,11 @@ import javax.annotation.Resource;
 
 
 import com.cashway.entity.Admin;
+import com.cashway.entity.Role;
 import com.cashway.service.AdminService;
 import com.cashway.service.CaptchaService;
+import com.cashway.service.RoleService;
+import com.cashway.service.VtcService;
 import com.cashway.util.SettingUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.ArrayUtils;
@@ -37,6 +40,12 @@ public class AuthenticationRealm extends AuthorizingRealm {
 
     @Resource
     private CaptchaService captchaService;
+
+    @Resource
+    private VtcService vtcService;
+
+    @Resource
+    private RoleService roleService;
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(org.apache.shiro.authc.AuthenticationToken token) {
@@ -97,6 +106,12 @@ public class AuthenticationRealm extends AuthorizingRealm {
 			admin.setLoginDate(new Date());
 			admin.setLoginFailureCount(0);
 			adminService.update(admin);
+
+            Role role = roleService.find(Role.AgentsRole.ROLE_ID);
+            if (admin.getRoles().contains(role)) {
+//                vtcService.register(admin);
+            }
+
 			return new SimpleAuthenticationInfo(new Principal(admin.getId(), username), password, getName());
 		}
 		throw new UnknownAccountException();

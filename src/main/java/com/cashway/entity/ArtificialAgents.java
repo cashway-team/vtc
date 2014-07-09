@@ -27,20 +27,20 @@ public class ArtificialAgents {
     @Column(name = "STATUS", nullable = false)
     private String status;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ORG_ID", referencedColumnName = "ID", nullable = false)
     private Organization organization;
 
     @Column(name = "LAST_LOGIN_DATE", nullable = false)
     private Date lastLoginDate;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "REL_AGENTS_TYPE",
             joinColumns = { @JoinColumn(name = "AGENTS_ID", referencedColumnName = "ID") },
             inverseJoinColumns = { @JoinColumn(name = "TYPE_ID", referencedColumnName = "ID") })
     private Set<AgentsType> agentsTypes = new HashSet<AgentsType>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name = "REL_AGENTS_SERVICE_TYPE",
             joinColumns = { @JoinColumn(name = "AGENTS_ID", referencedColumnName = "ID") },
             inverseJoinColumns = { @JoinColumn(name = "TYPE_ID", referencedColumnName = "ID") })

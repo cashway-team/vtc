@@ -1,4 +1,4 @@
-<%@ taglib prefix="shiro" uri="/WEB-INF/tld/shiro.tld" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

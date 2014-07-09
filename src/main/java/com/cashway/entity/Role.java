@@ -27,6 +27,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 @SequenceGenerator(name = "sequenceGenerator", sequenceName = "SQ_AUTH_ROLE")
 public class Role extends BaseEntity {
 
+    public interface AgentsRole {
+        Long ROLE_ID = 2l;
+    }
+
 	private static final long serialVersionUID = -6614052029623997372L;
 
 	private String name;

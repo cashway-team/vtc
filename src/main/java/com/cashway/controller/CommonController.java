@@ -19,9 +19,16 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cashway.common.Principal;
+import com.cashway.entity.Admin;
+import com.cashway.service.AdminService;
 import com.cashway.service.CaptchaService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -45,6 +52,9 @@ public class CommonController implements ServletContextAware {
 
 	@Value("${system.show_powered}")
 	private Boolean systemShowPowered;
+
+    @Resource
+    private AdminService adminService;
 
 //	@Resource(name = "areaServiceImpl")
 //	private AreaService areaService;
@@ -70,9 +80,10 @@ public class CommonController implements ServletContextAware {
 		this.servletContext = servletContext;
 	}
 
+    @RequiresPermissions("admin:admin")
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String main() {
-		return "/admin/common/main";
+        return "main";
 	}
 
 	/*@RequestMapping(value = "/index", method = RequestMethod.GET)

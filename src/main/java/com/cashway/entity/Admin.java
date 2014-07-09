@@ -9,15 +9,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.PreRemove;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -53,6 +45,8 @@ public class Admin extends BaseEntity {
 	private Date loginDate;
 
 	private String loginIp;
+
+    private ArtificialAgents artificialAgents;
 
 	private Set<Role> roles = new HashSet<Role>();
 
@@ -163,7 +157,7 @@ public class Admin extends BaseEntity {
 	}
 
 	@NotEmpty
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "AUTH_ADMIN_ROLE")
 	public Set<Role> getRoles() {
 		return roles;
@@ -173,4 +167,14 @@ public class Admin extends BaseEntity {
 		this.roles = roles;
 	}
 
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "AGENTS_ID", referencedColumnName = "ID", nullable = true)
+    public ArtificialAgents getArtificialAgents() {
+        return artificialAgents;
+    }
+
+    public void setArtificialAgents(ArtificialAgents artificialAgents) {
+        this.artificialAgents = artificialAgents;
+    }
 }
