@@ -21,7 +21,7 @@
 %>
 <shiro:authenticated>
     <%
-        response.sendRedirect(base + "/login/main.jhtml");
+        response.sendRedirect(base + "/pages/main.jsp");
     %>
 </shiro:authenticated>
 <%
