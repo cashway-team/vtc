@@ -56,10 +56,8 @@
 </script>
 <table class="main">
 <tr>
-    <th class="logo">
-        <a href="main.jsp">
-            <img src="${ctx}/resources/admin/images/header_logo.gif" alt="SHOP++" />
-        </a>
+    <th>
+        <div>Welcome, <strong><shiro:principal /></strong></div>
     </th>
     <th>
         <div id="nav" class="nav">
@@ -75,17 +73,6 @@
                     </c:if>
                 </c:forTokens>
             </ul>
-        </div>
-        <div class="link">
-            <%--<a href="http://www.shopxx.net" target="_blank">${message("admin.main.official")}</a>|
-            <a href="http://bbs.shopxx.net" target="_blank">${message("admin.main.bbs")}</a>|
-            <a href="http://www.shopxx.net/about.html" target="_blank">${message("admin.main.about")}</a>--%>
-        </div>
-        <div class="link">
-            <strong><shiro:principal /></strong>
-            <%--${message("admin.main.hello")}!
-            <a href="../profile/edit.jhtml" target="iframe">[${message("admin.main.profile")}]</a>
-            <a href="../logout.jsp" target="_top">[${message("admin.main.logout")}]</a>--%>
         </div>
     </th>
 </tr>
