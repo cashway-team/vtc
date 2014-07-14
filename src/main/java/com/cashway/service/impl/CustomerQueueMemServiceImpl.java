@@ -1,7 +1,7 @@
 package com.cashway.service.impl;
 
 import com.cashway.entity.CustomerMem;
-import com.cashway.service.CustomerQueueService;
+import com.cashway.service.CustomerQueueMemService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,8 +9,9 @@ import java.util.List;
 /**
  * Created by Wayne on 2014/7/14.
  */
-@Service
-public class CustomerQueueServiceImpl extends BaseServiceImpl<Long, CustomerMem> implements CustomerQueueService {
+@Service("customerQueueServiceImpl")
+public class CustomerQueueMemServiceImpl extends BaseServiceImpl<CustomerMem, Long> implements CustomerQueueMemService {
+
 
     @Override
     public List<CustomerMem> getRecentCustomers() {
