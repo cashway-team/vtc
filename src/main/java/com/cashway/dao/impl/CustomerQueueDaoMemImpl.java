@@ -4,12 +4,14 @@ import com.cashway.dao.CustomerQueueMemDao;
 import com.cashway.entity.CustomerMem;
 import net.sf.ehcache.search.expression.Criteria;
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by Wayne on 2014/7/14.
  */
+@Repository("customerQueueDaoMemImpl")
 public class CustomerQueueDaoMemImpl extends MemHibernateDao implements CustomerQueueMemDao {
     @Override
     public List<CustomerMem> getRecentCustomers() {
