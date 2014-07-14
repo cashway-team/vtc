@@ -1,13 +1,14 @@
 package com.cashway.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by mmzz on 2014/6/25.
  */
 @Entity
 @Table(name = "CUST_MEM")
-public class CustomerMem {
+public class CustomerMem implements Serializable {
 
     public interface Type {
         String NORMAL = "0";
