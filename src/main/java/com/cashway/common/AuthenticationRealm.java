@@ -109,7 +109,7 @@ public class AuthenticationRealm extends AuthorizingRealm {
 
             Role role = roleService.find(Role.AgentsRole.ROLE_ID);
             if (admin.getRoles().contains(role)) {
-//                vtcService.register(admin);
+                vtcService.register(admin);
             }
 
 			return new SimpleAuthenticationInfo(new Principal(admin.getId(), username), password, getName());

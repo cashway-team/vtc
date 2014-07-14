@@ -115,6 +115,11 @@
                 <a href="../product_notify/list.jhtml" target="iframe">系统配置参数管理</a>
             </dd>
         </shiro:hasPermission>
+        <shiro:hasPermission name="vta:agent">
+            <dd>
+                <a href="../product_notify/list.jhtml" target="iframe">视频坐席</a>
+            </dd>
+        </shiro:hasPermission>
     </dl>
 </td>
 <td>
