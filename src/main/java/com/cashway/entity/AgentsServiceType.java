@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "AGENTS_SERVICE_TYPE")
 public class AgentsServiceType {
 
-    public interface Status {
+    public interface Type {
         String MALE_SERVICE = "1";
         String PERSONAL_SERVICE = "2";
         String FINANCING = "3";

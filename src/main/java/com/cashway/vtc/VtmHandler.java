@@ -2,16 +2,21 @@ package com.cashway.vtc;
 
 import com.cashway.service.VtmService;
 import com.cashway.util.JsonUtils;
+import com.cashway.util.SpringUtils;
 import com.google.gson.Gson;
 import org.apache.mina.core.service.IoHandler;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * Created by mmzz on 2014/6/6.
  */
+@Component
 public class VtmHandler extends IoHandlerAdapter {
 
     @Autowired
@@ -19,7 +24,6 @@ public class VtmHandler extends IoHandlerAdapter {
 
     @Override
     public void messageReceived(IoSession ioSession, Object o) throws Exception {
-        //TODO 客户端连接处理, 会读取内存数据库，检测队列分配适当的坐席
         Gson gson = new Gson();
         VtmObject vtmObject = gson.fromJson((String) o, VtmObject.class);
         vtmService.register(vtmObject);

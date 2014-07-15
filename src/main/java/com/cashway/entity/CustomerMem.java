@@ -2,6 +2,7 @@ package com.cashway.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by mmzz on 2014/6/25.
@@ -16,7 +17,6 @@ public class CustomerMem implements Serializable {
         String VIP = "2";
     }
 
-
     @Id
     @SequenceGenerator(name = "sequence", sequenceName = "SQ_CUST_MEM", initialValue=1000, allocationSize=1)
     @GeneratedValue(generator = "sequence", strategy = GenerationType.SEQUENCE)
@@ -26,17 +26,17 @@ public class CustomerMem implements Serializable {
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    private String ip;
-
-    private String port;
-
+    @Column(name = "CARDNO", nullable = false)
     private String cardNo;
 
     @Column(name = "SERVICE_TYPE", nullable = false)
     private String serviceType;
 
+    @Column(name = "MESSAGE", nullable = false)
+    private String message;
+
     @Column(name = "CREATED_DATE", nullable = false)
-    private String createdDate;
+    private Date createdDate;
 
     @Column(name = "WAIT_TIME", nullable = false)
     private Integer waitTime;
@@ -61,22 +61,6 @@ public class CustomerMem implements Serializable {
         this.name = name;
     }
 
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public String getPort() {
-        return port;
-    }
-
-    public void setPort(String port) {
-        this.port = port;
-    }
-
     public String getCardNo() {
         return cardNo;
     }
@@ -93,14 +77,6 @@ public class CustomerMem implements Serializable {
         this.serviceType = serviceType;
     }
 
-    public String getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
-    }
-
     public Integer getWaitTime() {
         return waitTime;
     }
@@ -115,5 +91,21 @@ public class CustomerMem implements Serializable {
 
     public void setCustType(String custType) {
         this.custType = custType;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }
