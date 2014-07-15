@@ -107,6 +107,7 @@ public class AuthenticationRealm extends AuthorizingRealm {
 			admin.setLoginFailureCount(0);
 			adminService.update(admin);
 
+            // TODO 并非登陆就要注册，应该是在页面点击签到时候进入服务队列
             Role role = roleService.find(Role.AgentsRole.ROLE_ID);
             if (admin.getRoles().contains(role)) {
                 vtcService.register(admin);
