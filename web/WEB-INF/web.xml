@@ -11,6 +11,14 @@
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.cashway.listener.VtcListener</listener-class>
+    </listener>
+
     <filter>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -66,10 +74,6 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.jhtml</url-pattern>
     </servlet-mapping>
-
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
