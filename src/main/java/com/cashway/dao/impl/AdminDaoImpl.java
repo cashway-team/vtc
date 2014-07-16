@@ -6,14 +6,14 @@
 package com.cashway.dao.impl;
 
 import com.cashway.dao.AdminDao;
-import com.cashway.entity.Admin;
+import com.cashway.entity.persis.Admin;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.FlushModeType;
 import javax.persistence.NoResultException;
 
 @Repository("adminDaoImpl")
-public class AdminDaoImpl extends BaseDaoImpl<Admin, Long> implements AdminDao {
+public class AdminDaoImpl extends PersistenceDaoImpl<Admin, Long> implements AdminDao {
 
 	public boolean usernameExists(String username) {
 		if (username == null) {

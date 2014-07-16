@@ -12,7 +12,7 @@ import com.cashway.common.Order.Direction;
 import com.cashway.common.Page;
 import com.cashway.common.Pageable;
 import com.cashway.dao.BaseDao;
-import com.cashway.entity.OrderEntity;
+import com.cashway.entity.persis.OrderEntity;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.util.Assert;
 
@@ -31,8 +31,11 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
 
 	private static volatile long aliasCount = 0;
 
-	@PersistenceContext
-	protected EntityManager entityManager;
+    protected EntityManager entityManager;
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
 	@SuppressWarnings("unchecked")
 	public BaseDaoImpl() {

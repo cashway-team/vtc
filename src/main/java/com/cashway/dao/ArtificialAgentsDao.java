@@ -1,6 +1,6 @@
 package com.cashway.dao;
 
-import com.cashway.entity.ArtificialAgents;
+import com.cashway.entity.persis.ArtificialAgents;
 
 /**
  * Created by mmzz on 2014/7/9.

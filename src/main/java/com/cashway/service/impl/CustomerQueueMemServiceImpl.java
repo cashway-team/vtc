@@ -1,7 +1,7 @@
 package com.cashway.service.impl;
 
 import com.cashway.dao.CustomerQueueMemDao;
-import com.cashway.entity.CustomerMem;
+import com.cashway.entity.mem.CustomerMem;
 import com.cashway.service.CustomerQueueMemService;
 import org.springframework.stereotype.Service;
 

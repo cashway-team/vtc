@@ -1,7 +1,6 @@
-package com.cashway.entity;
+package com.cashway.entity.mem;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**

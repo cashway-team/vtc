@@ -8,7 +8,7 @@ package com.cashway.service.impl;
 import javax.annotation.Resource;
 
 import com.cashway.dao.RoleDao;
-import com.cashway.entity.Role;
+import com.cashway.entity.persis.Role;
 import com.cashway.service.RoleService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;

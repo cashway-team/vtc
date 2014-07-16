@@ -1,8 +1,7 @@
 package com.cashway.dao.impl;
 
 import com.cashway.dao.ArtificialAgentsDao;
-import com.cashway.entity.ArtificialAgents;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import com.cashway.entity.persis.ArtificialAgents;
 import org.springframework.stereotype.Repository;
 
 /**

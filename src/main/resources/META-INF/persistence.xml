@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+			 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+
+    <!--配置informix数据源-->
+    <persistence-unit name="informix" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <non-jta-data-source>informixDataSource</non-jta-data-source>
+
+        <!--这里的class是指要储存于本数据库的Entity-->
+        <class>com.cashway.entity.persis.Admin</class>
+        <class>com.cashway.entity.persis.AgentsType</class>
+        <class>com.cashway.entity.persis.AgentsServiceType</class>
+        <class>com.cashway.entity.persis.ArtificialAgentsMemHistory</class>
+        <class>com.cashway.entity.persis.ArtificialAgents</class>
+        <class>com.cashway.entity.persis.ArtificialAgentsServiceHistory</class>
+        <class>com.cashway.entity.persis.Organization</class>
+        <class>com.cashway.entity.persis.Role</class>
+        <class>com.cashway.entity.persis.CustomerMemHistory</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.InformixDialect"/>
+            <property name="hibernate.connection.driver_class" value="com.informix.jdbc.IfxDriver"/>
+           <!-- <property name="hibernate.connection.username" value="qhdatmv"/>
+            <property name="hibernate.connection.password" value="xtjcqhdatmv815362"/>
+            <property name="hibernate.connection.url"
+            value="jdbc:informix-sqli://192.168.0.13:9998/vtc:INFORMIXSERVER=HP_dangan;NEWCODESET=GBK,8859-1,819;IFX_USE_STRENC=true;"/>-->
+            <property name="hibernate.archive.autodetection" value="false"/>
+            <property name="hibernate.transaction.auto_close_session" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+    <!--配置h2数据源-->
+    <persistence-unit name="h2" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <non-jta-data-source>h2DataSource</non-jta-data-source>
+
+        <class>com.cashway.entity.mem.ArtificialAgentsMem</class>
+        <class>com.cashway.entity.mem.CustomerMem</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+           <!-- <property name="hibernate.connection.username" value="mmzz"/>
+            <property name="hibernate.connection.password" value="mmzz"/>
+            <property name="hibernate.connection.url"
+                      value="jdbc:h2:tcp://192.168.0.62/~/vtc"/>-->
+            <property name="hibernate.archive.autodetection" value="false"/>
+            <property name="hibernate.transaction.auto_close_session" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

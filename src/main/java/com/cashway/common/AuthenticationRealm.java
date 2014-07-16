@@ -11,8 +11,8 @@ import java.util.List;
 import javax.annotation.Resource;
 
 
-import com.cashway.entity.Admin;
-import com.cashway.entity.Role;
+import com.cashway.entity.persis.Admin;
+import com.cashway.entity.persis.Role;
 import com.cashway.service.AdminService;
 import com.cashway.service.CaptchaService;
 import com.cashway.service.RoleService;

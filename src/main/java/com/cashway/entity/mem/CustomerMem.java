@@ -1,4 +1,4 @@
-package com.cashway.entity;
+package com.cashway.entity.mem;
 
 import javax.persistence.*;
 import java.io.Serializable;

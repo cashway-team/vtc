@@ -19,7 +19,7 @@ import com.cashway.common.Order;
 import com.cashway.common.Page;
 import com.cashway.common.Pageable;
 import com.cashway.dao.BaseDao;
-import com.cashway.entity.BaseEntity;
+import com.cashway.entity.persis.BaseEntity;
 import com.cashway.service.BaseService;
 
 import org.apache.commons.lang.ArrayUtils;

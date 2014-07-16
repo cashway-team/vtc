@@ -1,8 +1,8 @@
 package com.cashway.service.impl;
 
 import com.cashway.dao.CustomerQueueMemDao;
-import com.cashway.entity.AgentsServiceType;
-import com.cashway.entity.CustomerMem;
+import com.cashway.entity.persis.AgentsServiceType;
+import com.cashway.entity.mem.CustomerMem;
 import com.cashway.service.VtmService;
 import com.cashway.vtc.VtmObject;
 import com.google.gson.Gson;

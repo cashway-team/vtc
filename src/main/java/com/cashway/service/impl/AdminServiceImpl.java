@@ -12,8 +12,8 @@ import javax.annotation.Resource;
 
 import com.cashway.common.Principal;
 import com.cashway.dao.AdminDao;
-import com.cashway.entity.Admin;
-import com.cashway.entity.Role;
+import com.cashway.entity.persis.Admin;
+import com.cashway.entity.persis.Role;
 import com.cashway.service.AdminService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;

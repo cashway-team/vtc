@@ -6,10 +6,10 @@
 package com.cashway.dao.impl;
 
 import com.cashway.dao.RoleDao;
-import com.cashway.entity.Role;
+import com.cashway.entity.persis.Role;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RoleDaoImpl extends BaseDaoImpl<Role, Long> implements RoleDao {
+public class RoleDaoImpl extends PersistenceDaoImpl<Role, Long> implements RoleDao {
 
 }

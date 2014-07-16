@@ -1,4 +1,4 @@
-package com.cashway.entity;
+package com.cashway.entity.persis;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -5,7 +5,7 @@
  */
 package com.cashway.dao;
 
-import com.cashway.entity.Role;
+import com.cashway.entity.persis.Role;
 
 public interface RoleDao extends BaseDao<Role, Long> {
 

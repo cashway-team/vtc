@@ -6,7 +6,7 @@
 package com.cashway.service;
 
 
-import com.cashway.entity.Role;
+import com.cashway.entity.persis.Role;
 
 public interface RoleService extends BaseService<Role, Long> {
 

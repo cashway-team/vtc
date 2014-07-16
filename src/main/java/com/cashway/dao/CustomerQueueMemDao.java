@@ -1,13 +1,13 @@
 package com.cashway.dao;
 
-import com.cashway.entity.CustomerMem;
+import com.cashway.entity.mem.CustomerMem;
 
 import java.util.List;
 
 /**
  * Created by Wayne on 2014/7/14.
  */
-public interface CustomerQueueMemDao {
+public interface CustomerQueueMemDao extends BaseDao<CustomerMem, Long> {
 
     List<CustomerMem> getRecentCustomers();
 

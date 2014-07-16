@@ -1,6 +1,6 @@
 package com.cashway.service;
 
-import com.cashway.entity.CustomerMem;
+import com.cashway.entity.mem.CustomerMem;
 
 import java.util.List;
 

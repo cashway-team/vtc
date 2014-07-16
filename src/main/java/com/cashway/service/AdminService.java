@@ -5,7 +5,7 @@
  */
 package com.cashway.service;
 
-import com.cashway.entity.Admin;
+import com.cashway.entity.persis.Admin;
 
 import java.util.List;
 

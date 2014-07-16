@@ -5,7 +5,7 @@
  */
 package com.cashway.dao;
 
-import com.cashway.entity.Admin;
+import com.cashway.entity.persis.Admin;
 
 public interface AdminDao extends BaseDao<Admin, Long> {
 

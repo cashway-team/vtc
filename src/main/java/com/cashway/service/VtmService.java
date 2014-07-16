@@ -1,6 +1,5 @@
 package com.cashway.service;
 
-import com.cashway.entity.CustomerMem;
 import com.cashway.vtc.VtmObject;
 
 /**

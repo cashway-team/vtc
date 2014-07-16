@@ -5,7 +5,7 @@
  */
 package com.cashway.listener;
 
-import com.cashway.entity.BaseEntity;
+import com.cashway.entity.persis.BaseEntity;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
