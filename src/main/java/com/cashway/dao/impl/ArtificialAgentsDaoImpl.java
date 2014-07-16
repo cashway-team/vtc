@@ -7,17 +7,17 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by mmzz on 2014/6/16.
  */
-@Repository
-public class ArtificialAgentsDaoImpl extends BaseDaoImpl<ArtificialAgents, String>
+@Repository("artificialAgentsDaoImpl")
+public class ArtificialAgentsDaoImpl extends PersistenceDaoImpl<ArtificialAgents, Long>
         implements ArtificialAgentsDao {
 
     public ArtificialAgents saveArtificialAgents(ArtificialAgents artificialAgents) {
-        this.persist(artificialAgents);
+        persist(artificialAgents);
         return artificialAgents;
     }
 
     public ArtificialAgents findArtificialAgents(Long agentsId) {
-        ArtificialAgents artificialAgents = this.find(String.valueOf(agentsId));
+        ArtificialAgents artificialAgents = find(agentsId);
         return artificialAgents;
     }
 

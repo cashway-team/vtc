@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by mmzz on 2014/6/25.
  */
-@Repository
-public class ArtificialAgentsMemHistoryDaoImpl extends BaseDaoImpl<ArtificialAgentsMemHistory, String>
+@Repository("artificialAgentsMemHistoryDaoImpl")
+public class ArtificialAgentsMemHistoryDaoImpl extends PersistenceDaoImpl<ArtificialAgentsMemHistory, Long>
         implements ArtificialAgentsMemHistoryDao {
 
     public void save(ArtificialAgentsMemHistory artificialAgentsMemHistory) {
