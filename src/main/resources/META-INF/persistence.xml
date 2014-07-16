@@ -20,19 +20,6 @@
         <class>com.cashway.entity.persis.Role</class>
         <class>com.cashway.entity.persis.CustomerMemHistory</class>
 
-        <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.InformixDialect"/>
-            <property name="hibernate.connection.driver_class" value="com.informix.jdbc.IfxDriver"/>
-            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
-           <!-- <property name="hibernate.connection.username" value="qhdatmv"/>
-            <property name="hibernate.connection.password" value="xtjcqhdatmv815362"/>
-            <property name="hibernate.connection.url"
-            value="jdbc:informix-sqli://192.168.0.13:9998/vtc:INFORMIXSERVER=HP_dangan;NEWCODESET=GBK,8859-1,819;IFX_USE_STRENC=true;"/>-->
-            <property name="hibernate.archive.autodetection" value="false"/>
-            <property name="hibernate.transaction.auto_close_session" value="false"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-        </properties>
-
     </persistence-unit>
 
     <!--配置h2数据源-->
