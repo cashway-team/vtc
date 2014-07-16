@@ -23,6 +23,7 @@
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.InformixDialect"/>
             <property name="hibernate.connection.driver_class" value="com.informix.jdbc.IfxDriver"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
            <!-- <property name="hibernate.connection.username" value="qhdatmv"/>
             <property name="hibernate.connection.password" value="xtjcqhdatmv815362"/>
             <property name="hibernate.connection.url"
@@ -45,6 +46,7 @@
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
            <!-- <property name="hibernate.connection.username" value="mmzz"/>
             <property name="hibernate.connection.password" value="mmzz"/>
             <property name="hibernate.connection.url"
