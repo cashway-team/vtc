@@ -44,4 +44,6 @@
         <property name="keepAliveSeconds" value="${task.keep_alive_seconds}" />
     </bean>
 
+    <task:annotation-driven/>
+
 </beans>
