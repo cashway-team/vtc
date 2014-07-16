@@ -12,6 +12,7 @@ public class PersistenceDaoImpl<T, ID extends Serializable> extends BaseDaoImpl<
     @PersistenceContext(unitName = "informix")
     public void setInformixEntityManager(EntityManager informixEntityManager) {
         this.informixEntityManager = informixEntityManager;
+        setEntityManager(informixEntityManager);
     }
 
     @PersistenceContext(unitName = "informix")
