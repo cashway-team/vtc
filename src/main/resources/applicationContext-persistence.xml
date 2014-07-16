@@ -20,7 +20,7 @@
     </bean>
 
     <!-- #########################InformixSql####################### -->
-    <tx:annotation-driven transaction-manager="informixEntityManagerFactory"/>
+    <tx:annotation-driven transaction-manager="informixTransactionManager"/>
 
     <bean id="informixJpaVendor"
           class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
@@ -62,7 +62,7 @@
     </bean>
 
     <!--########################H2Sql################################# -->
-    <tx:annotation-driven transaction-manager="h2EntityManagerFactory"/>
+    <tx:annotation-driven transaction-manager="h2TransactionManager"/>
 
     <bean id="h2JpaVendor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="showSql" value="true"/>
