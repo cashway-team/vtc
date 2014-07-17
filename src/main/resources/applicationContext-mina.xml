@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <!-- The IoHandler implementation -->
-    <bean id="trapHandler" class="com.cashway.vtc.VtmHandler" />
+    <bean id="trapHandler" class="com.cashway.handler.VtmHandler" />
 
     <bean id="codecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
         <constructor-arg>
