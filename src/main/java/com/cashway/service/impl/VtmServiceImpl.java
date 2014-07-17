@@ -4,7 +4,7 @@ import com.cashway.dao.CustomerQueueMemDao;
 import com.cashway.entity.persis.AgentsServiceType;
 import com.cashway.entity.mem.CustomerMem;
 import com.cashway.service.VtmService;
-import com.cashway.vtc.VtmObject;
+import com.cashway.handler.VtmObject;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
