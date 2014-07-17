@@ -145,7 +145,6 @@
     <%}%>
 </head>
 <body>
-<%if (applicationContext != null) {%>
 <div class="login">
     <form id="loginForm" action="login.jsp" method="post">
         <input type="hidden" id="enPassword" name="enPassword"/>
@@ -155,7 +154,7 @@
         <table>
             <tr>
                 <td width="190" rowspan="2" align="center" valign="bottom">
-                    <img src="<%=base%>/resources/admin/images/login_logo.gif" alt="SHOP++"/>
+                    <%--<img src="<%=base%>/resources/admin/images/login_logo.gif" alt="CASHWAY"/>--%>
                 </td>
                 <th>
                     <%=SpringUtils.getMessage("admin.login.username")%>:
@@ -215,32 +214,8 @@
                 </td>
             </tr>
         </table>
-        <div class="powered">COPYRIGHT © 2005-2013 SHOPXX.NET ALL RIGHTS RESERVED.</div>
-        <div class="link">
-            <a href="<%=base%>/"><%=SpringUtils.getMessage("admin.login.home")%>
-            </a> |
-            <a href="http://www.shopxx.net"><%=SpringUtils.getMessage("admin.login.official")%>
-            </a> |
-            <a href="http://bbs.shopxx.net"><%=SpringUtils.getMessage("admin.login.bbs")%>
-            </a> |
-            <a href="http://www.shopxx.net/about.html"><%=SpringUtils.getMessage("admin.login.about")%>
-            </a> |
-            <a href="http://www.shopxx.net/contact.html"><%=SpringUtils.getMessage("admin.login.contact")%>
-            </a> |
-            <a href="http://www.shopxx.net/license.html"><%=SpringUtils.getMessage("admin.login.license")%>
-            </a>
-        </div>
+        <div class="powered">COPYRIGHT © 2005-2014 CASHWAY FINANCE ALL RIGHTS RESERVED.</div>
     </form>
 </div>
-<%} else {%>
-<fieldset>
-    <legend>系统出现异常</legend>
-    <p>请检查SHOP++程序是否已正确安装 [<a href="<%=base%>/install/">点击此处进行安装</a>]</p>
-
-    <p>
-        <strong>提示: SHOP++安装完成后必须重新启动WEB服务器</strong>
-    </p>
-</fieldset>
-<%}%>
 </body>
 </html>
