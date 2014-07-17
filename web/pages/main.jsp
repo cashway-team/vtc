@@ -117,7 +117,7 @@
         </shiro:hasPermission>
         <shiro:hasPermission name="vta:agent">
             <dd>
-                <a href="../product_notify/list.jhtml" target="iframe">视频坐席</a>
+                <a href="<c:url value='/agents/index.jhtml' />" target="iframe">视频坐席</a>
             </dd>
         </shiro:hasPermission>
     </dl>
