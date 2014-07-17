@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by mmzz on 2014/6/25.
  */
-@Repository("artificialAgentsMemDaoImpl")
+@Repository
 public class ArtificialAgentsMemDaoImpl extends MemDaoImpl<ArtificialAgentsMem, Long>
         implements ArtificialAgentsMemDao {
 

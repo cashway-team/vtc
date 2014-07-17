@@ -7,6 +7,7 @@ import com.cashway.entity.persis.Admin;
 import com.cashway.entity.persis.ArtificialAgents;
 import com.cashway.entity.persis.ArtificialAgentsMemHistory;
 import com.cashway.service.VtcService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,19 +19,15 @@ import java.util.Date;
  * Created by mmzz on 2014/6/16.
  */
 @Service
-@Transactional(value="h2EM")
+@Transactional
 public class VtcServiceImpl extends BaseServiceImpl<Admin, Long> implements VtcService {
 
-    /*@Autowired
-    private ArtificialAgentsDao artificialAgentsDao;*/
-
-    @Resource(name="artificialAgentsMemDaoImpl")
+    @Autowired
     private ArtificialAgentsMemDao artificialAgentsMemDao;
 
-    @Resource(name="artificialAgentsMemHistoryDaoImpl")
+    @Autowired
     private ArtificialAgentsMemHistoryDao artificialAgentsMemHistoryDao;
 
-    @Transactional
     public boolean register(Admin admin) {
 
         ArtificialAgents artificialAgents = admin.getArtificialAgents();
