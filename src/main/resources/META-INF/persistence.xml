@@ -5,7 +5,7 @@
 			 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
 
     <!--配置informix数据源-->
-    <persistence-unit name="informix" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="informixUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <non-jta-data-source>informixDataSource</non-jta-data-source>
 
@@ -23,25 +23,12 @@
     </persistence-unit>
 
     <!--配置h2数据源-->
-    <persistence-unit name="h2" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="h2Unit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <non-jta-data-source>h2DataSource</non-jta-data-source>
 
         <class>com.cashway.entity.mem.ArtificialAgentsMem</class>
         <class>com.cashway.entity.mem.CustomerMem</class>
-
-        <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
-            <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
-           <!-- <property name="hibernate.connection.username" value="mmzz"/>
-            <property name="hibernate.connection.password" value="mmzz"/>
-            <property name="hibernate.connection.url"
-                      value="jdbc:h2:tcp://192.168.0.62/~/vtc"/>-->
-            <property name="hibernate.archive.autodetection" value="false"/>
-            <property name="hibernate.transaction.auto_close_session" value="false"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-        </properties>
 
     </persistence-unit>
 

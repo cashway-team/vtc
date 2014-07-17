@@ -20,8 +20,6 @@
     </bean>
 
     <!-- #########################InformixSql####################### -->
-    <tx:annotation-driven transaction-manager="informixTransactionManager"/>
-
     <bean id="informixJpaVendor"
           class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="showSql" value="true"/>
@@ -43,7 +41,7 @@
 
     <bean id="informixEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitManager" ref="defaultPersistenceUnitManager"/>
-        <property name="persistenceUnitName" value="informix"/>
+        <property name="persistenceUnitName" value="informixUnit"/>
         <property name="jpaVendorAdapter" ref="informixJpaVendor"/>
         <property name="loadTimeWeaver">
             <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
@@ -63,8 +61,6 @@
                 <prop key="hibernate.connection.isolation">2</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="javax.persistence.validation.mode">none</prop>
-                <prop key="hibernate.search.default.directory_provider">org.hibernate.search.store.FSDirectoryProvider</prop>
-                <prop key="hibernate.search.default.indexBase">${java.io.tmpdir}/${system.project_name}/index</prop>
             </props>
         </property>
     </bean>
@@ -74,9 +70,9 @@
         <qualifier value="informixEM"/>
     </bean>
 
-    <!--########################H2Sql################################# -->
-    <tx:annotation-driven transaction-manager="h2TransactionManager"/>
+    <tx:annotation-driven transaction-manager="informixTransactionManager"/>
 
+    <!--########################H2Sql################################# -->
     <bean id="h2JpaVendor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="showSql" value="true"/>
         <property name="generateDdl" value="true"/>
@@ -89,7 +85,6 @@
                 <property name="user" value="${h2.jdbc.username}"/>
                 <property name="password" value="${h2.jdbc.password}"/>
             </bean>
-
         </constructor-arg>
         <!--<property name="initialSize" value="${connection_pools.initial_pool_size}"/>-->
         <!--<property name="maxActive" value="150"/>-->
@@ -99,13 +94,23 @@
 
     <bean id="h2EntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitManager" ref="defaultPersistenceUnitManager"/>
-        <property name="persistenceUnitName" value="h2"/>
+        <property name="persistenceUnitName" value="h2Unit"/>
         <property name="jpaVendorAdapter" ref="h2JpaVendor"/>
         <property name="loadTimeWeaver">
             <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
         </property>
         <property name="jpaDialect">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.connection.driver_class">org.h2.Driver</prop>
+                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                <prop key="hibernate.archive.autodetection">false</prop>
+                <prop key="hibernate.transaction.auto_close_session">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
         </property>
     </bean>
 
@@ -116,6 +121,8 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
         </property>
     </bean>
+
+    <tx:annotation-driven transaction-manager="h2TransactionManager"/>
 
     <cache:annotation-driven cache-manager="cacheManager" />
 

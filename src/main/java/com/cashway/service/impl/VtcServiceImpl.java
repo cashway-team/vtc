@@ -1,17 +1,16 @@
 package com.cashway.service.impl;
 
-import com.cashway.dao.ArtificialAgentsDao;
 import com.cashway.dao.ArtificialAgentsMemDao;
 import com.cashway.dao.ArtificialAgentsMemHistoryDao;
+import com.cashway.entity.mem.ArtificialAgentsMem;
 import com.cashway.entity.persis.Admin;
 import com.cashway.entity.persis.ArtificialAgents;
-import com.cashway.entity.mem.ArtificialAgentsMem;
 import com.cashway.entity.persis.ArtificialAgentsMemHistory;
 import com.cashway.service.VtcService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -19,18 +18,19 @@ import java.util.Date;
  * Created by mmzz on 2014/6/16.
  */
 @Service
-@Transactional
-public class VtcServiceImpl implements VtcService {
+@Transactional(value="h2EM")
+public class VtcServiceImpl extends BaseServiceImpl<Admin, Long> implements VtcService {
 
-    @Autowired
-    private ArtificialAgentsDao artificialAgentsDao;
+    /*@Autowired
+    private ArtificialAgentsDao artificialAgentsDao;*/
 
-    @Autowired
+    @Resource(name="artificialAgentsMemDaoImpl")
     private ArtificialAgentsMemDao artificialAgentsMemDao;
 
-    @Autowired
+    @Resource(name="artificialAgentsMemHistoryDaoImpl")
     private ArtificialAgentsMemHistoryDao artificialAgentsMemHistoryDao;
 
+    @Transactional
     public boolean register(Admin admin) {
 
         ArtificialAgents artificialAgents = admin.getArtificialAgents();
