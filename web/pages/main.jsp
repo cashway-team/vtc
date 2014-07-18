@@ -57,7 +57,7 @@
 <table class="main">
 <tr>
     <th>
-        <div>Welcome, <strong><shiro:principal /></strong></div>
+        <div>Welcome, <strong><shiro:principal /></strong>, <a href="../pages/logout.jsp" target="_top"><%=SpringUtils.getMessage("admin.main.logout")%></a></div>
     </th>
     <th>
         <div id="nav" class="nav">
