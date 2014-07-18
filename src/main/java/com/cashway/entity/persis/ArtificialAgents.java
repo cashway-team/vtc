@@ -85,7 +85,7 @@ public class ArtificialAgents {
     public String getAgentsTypesStr() {
         StringBuffer buffer = new StringBuffer();
         for (AgentsType type : this.getAgentsTypes()) {
-            buffer.append(type.getNo() + ",");
+            buffer.append(type.getId() + ",");
         }
 
         String types = buffer.toString();
@@ -107,7 +107,7 @@ public class ArtificialAgents {
     public String getAgentsServiceTypesStr() {
         StringBuffer buffer = new StringBuffer();
         for (AgentsServiceType type : this.getAgentsServiceTypes()) {
-            buffer.append(type.getNo() + ",");
+            buffer.append(type.getId() + ",");
         }
 
         String types = buffer.toString();

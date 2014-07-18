@@ -19,14 +19,14 @@
         </property>
     </bean>
 
-    <!-- #########################InformixSql####################### -->
-    <bean id="informixJpaVendor"
+    <!-- ######################### Oracle Configuration ####################### -->
+    <bean id="oracleJpaVendor"
           class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="showSql" value="true"/>
         <property name="generateDdl" value="true"/>
     </bean>
 
-    <bean id="informixDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <bean id="oracleDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="${jdbc.driver}" />
         <property name="jdbcUrl" value="${jdbc.url}" />
         <property name="user" value="${jdbc.username}" />
@@ -39,10 +39,10 @@
         <property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />
     </bean>
 
-    <bean id="informixEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean id="oracleEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitManager" ref="defaultPersistenceUnitManager"/>
-        <property name="persistenceUnitName" value="informixUnit"/>
-        <property name="jpaVendorAdapter" ref="informixJpaVendor"/>
+        <property name="persistenceUnitName" value="oracleUnit"/>
+        <property name="jpaVendorAdapter" ref="oracleJpaVendor"/>
         <property name="loadTimeWeaver">
             <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
         </property>
@@ -59,20 +59,21 @@
                 <prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>
                 <prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>
                 <prop key="hibernate.connection.isolation">2</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="javax.persistence.validation.mode">none</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <prop key="hibernate.default_schema">${hibernate.default_schema}</prop>
+                <prop key="javax.persistence.validation.mode">${javax.persistence.validation.mode}</prop>
             </props>
         </property>
     </bean>
 
-    <bean id="informixTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="informixEntityManagerFactory"/>
-        <qualifier value="informixEM"/>
+    <bean id="oracleTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="oracleEntityManagerFactory"/>
+        <qualifier value="oracleEM"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="informixTransactionManager"/>
+    <tx:annotation-driven transaction-manager="oracleTransactionManager"/>
 
-    <!--########################H2Sql################################# -->
+    <!--######################## H2 Configuration ################################# -->
     <bean id="h2JpaVendor" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="showSql" value="true"/>
         <property name="generateDdl" value="true"/>

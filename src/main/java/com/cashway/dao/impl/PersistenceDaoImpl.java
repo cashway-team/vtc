@@ -9,15 +9,15 @@ import java.io.Serializable;
 /**
  * Created by mmzz on 2014/6/25.
  */
-@Transactional(value="informixEM")
+@Transactional(value="oracleEM")
 public class PersistenceDaoImpl<T, ID extends Serializable> extends BaseDaoImpl<T, ID> {
 
-    @PersistenceContext(unitName = "informixUnit")
-    public void setInformixEntityManager(EntityManager informixEntityManager) {
-        this.informixEntityManager = informixEntityManager;
-        setEntityManager(informixEntityManager);
+    @PersistenceContext(unitName = "oracleUnit")
+    public void setOracleEntityManager(EntityManager oracleEntityManager) {
+        this.oracleEntityManager = oracleEntityManager;
+        setEntityManager(oracleEntityManager);
     }
 
-    @PersistenceContext(unitName = "informixUnit")
-    protected EntityManager informixEntityManager;
+    @PersistenceContext(unitName = "oracleUnit")
+    protected EntityManager oracleEntityManager;
 }

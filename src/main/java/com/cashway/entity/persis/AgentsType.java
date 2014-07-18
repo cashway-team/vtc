@@ -17,14 +17,11 @@ public class AgentsType {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "NO", nullable = false)
-    private String no;
-
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "DESC", nullable = false)
-    private String desc;
+    @Column(name = "DESCRIPTION", nullable = false)
+    private String description;
 
     @ManyToMany(mappedBy = "agentsTypes")
     private Set<ArtificialAgents> artificialAgents = new HashSet<ArtificialAgents>();
@@ -37,14 +34,6 @@ public class AgentsType {
         this.id = id;
     }
 
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
-    }
-
     public String getName() {
         return name;
     }
@@ -53,19 +42,19 @@ public class AgentsType {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public Set<ArtificialAgents> getArtificialAgents() {
         return artificialAgents;
     }
 
     public void setArtificialAgents(Set<ArtificialAgents> artificialAgents) {
         this.artificialAgents = artificialAgents;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

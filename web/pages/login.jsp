@@ -128,9 +128,9 @@
                 $enPassword.val(enPassword);
             });
 
-            <%if (message != null) {%>
-                $.message("error", "<%=SpringUtils.getMessage(message, setting.getAccountLockCount())%>");
-            <%}%>
+            <%--<%if (message != null) {%>--%>
+                <%--$.message("error", "<%=SpringUtils.getMessage(message, setting.getAccountLockCount())%>");--%>
+            <%--<%}%>--%>
         });
     </script>
     <%} else {%>
