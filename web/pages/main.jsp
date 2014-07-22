@@ -11,7 +11,7 @@
     <title><%=SpringUtils.getMessage("admin.main.title")%></title>
     <link href="${ctx}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
     <link href="${ctx}/resources/admin/css/main.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="${rc.contextPath}/resources/admin/js/jquery.js"></script>
+    <script type="text/javascript" src="${ctx}/resources/admin/js/jquery.js"></script>
     <style type="text/css">
         *{
             font: 12px tahoma, Arial, Verdana, sans-serif;

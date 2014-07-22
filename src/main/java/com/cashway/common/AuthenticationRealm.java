@@ -21,6 +21,7 @@ import com.cashway.util.SettingUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.time.DateUtils;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -31,7 +32,11 @@ import org.apache.shiro.authc.pam.UnsupportedTokenException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
+
+import static com.cashway.common.Constants.ARTIFICIAL_AGENTS_KEY;
 
 public class AuthenticationRealm extends AuthorizingRealm {
 
@@ -110,10 +115,14 @@ public class AuthenticationRealm extends AuthorizingRealm {
             // TODO 并非登陆就要注册，应该是在页面点击签到时候进入服务队列
             Role role = roleService.find(Role.AgentsRole.ROLE_ID);
             if (admin.getRoles().contains(role)) {
-                vtcService.register(admin);
+                vtcService.registeredArtificialAgentsMem(admin);
+
+                Subject subject = SecurityUtils.getSubject();
+                Session session = subject.getSession();
+                session.setAttribute(ARTIFICIAL_AGENTS_KEY, admin.getArtificialAgents().getId());
             }
 
-			return new SimpleAuthenticationInfo(new Principal(admin.getId(), username), password, getName());
+            return new SimpleAuthenticationInfo(new Principal(admin.getId(), username), password, getName());
 		}
 		throw new UnknownAccountException();
 	}

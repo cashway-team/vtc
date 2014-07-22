@@ -19,7 +19,9 @@ import com.cashway.service.AdminService;
 import com.cashway.service.CaptchaService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,12 +69,6 @@ public class CommonController implements ServletContextAware {
 
 	public void setServletContext(ServletContext servletContext) {
 		this.servletContext = servletContext;
-	}
-
-    @RequiresPermissions("admin:admin")
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String main() {
-        return "main";
 	}
 
 	/*@RequestMapping(value = "/index", method = RequestMethod.GET)
