@@ -12,10 +12,10 @@ import java.util.List;
 /**
  * Created by Wayne on 2014/7/14.
  */
-@Repository("customerQueueDaoMemImpl")
+@Repository
 public class CustomerQueueMemDaoImpl extends MemDaoImpl<CustomerMem, Long> implements CustomerQueueMemDao {
     @Override
-    public List<CustomerMem> getRecentCustomers() {
+    public List<CustomerMem> getCustomers() {
         String jpql = "from CustomerMem customerMem";
         Query query = entityManager.createQuery(jpql);
         return query.getResultList();

@@ -44,6 +44,8 @@ public class CustomerMem implements Serializable {
     @Column(name = "CUST_TYPE", nullable = false)
     private String custType;
 
+    @Column(name="NEXT_MARK", nullable = true, columnDefinition = "int default 0")
+    private int nextMark;
 
     public Long getId() {
         return id;
@@ -107,5 +109,13 @@ public class CustomerMem implements Serializable {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public int getNextMark() {
+        return nextMark;
+    }
+
+    public void setNextMark(int nextMark) {
+        this.nextMark = nextMark;
     }
 }

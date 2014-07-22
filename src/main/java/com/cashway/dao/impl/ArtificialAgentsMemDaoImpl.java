@@ -12,6 +12,11 @@ public class ArtificialAgentsMemDaoImpl extends MemDaoImpl<ArtificialAgentsMem, 
         implements ArtificialAgentsMemDao {
 
     @Override
+    public ArtificialAgentsMem find() {
+        return null;
+    }
+
+    @Override
     public void save(ArtificialAgentsMem artificialAgentsMem) {
         entityManager.persist(artificialAgentsMem);
     }

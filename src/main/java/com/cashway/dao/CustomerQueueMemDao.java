@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface CustomerQueueMemDao extends BaseDao<CustomerMem, Long> {
 
-    List<CustomerMem> getRecentCustomers();
+    List<CustomerMem> getCustomers();
 
     void persist(CustomerMem customerMem);
 

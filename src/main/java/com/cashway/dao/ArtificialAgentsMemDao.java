@@ -7,4 +7,6 @@ import com.cashway.entity.mem.ArtificialAgentsMem;
  */
 public interface ArtificialAgentsMemDao extends BaseDao<ArtificialAgentsMem, Long> {
     public void save(ArtificialAgentsMem artificialAgentsMem);
+
+    public ArtificialAgentsMem find();
 }
