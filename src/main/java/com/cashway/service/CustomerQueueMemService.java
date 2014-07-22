@@ -26,5 +26,5 @@ public interface CustomerQueueMemService extends BaseService<CustomerMem, Long> 
 
     void addNextMark(CustomerMem customerMem);
 
-    CustomerMem getMarkedNext(Filter filter);
+    List<CustomerMem> getMarkedNext();
 }

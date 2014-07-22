@@ -1,6 +1,7 @@
 package com.cashway.service.impl;
 
 import com.cashway.common.Filter;
+import com.cashway.common.Order;
 import com.cashway.dao.CustomerQueueMemDao;
 import com.cashway.entity.mem.CustomerMem;
 import com.cashway.service.CustomerQueueMemService;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Wayne on 2014/7/14.
@@ -32,17 +33,27 @@ public class CustomerQueueMemServiceImpl extends BaseServiceImpl<CustomerMem, Lo
     }
 
     @Override
-    public boolean hasNextMark() {
-        Filter filter = new Filter();
-        filter.setProperty("nextMark");
-        filter.setOperator(Filter.Operator.eq);
-        filter.setValue(1);
-        return super.exists(filter);
+    public void persist(CustomerMem customerMem) {
+        customerQueueMemDao.persist(customerMem);
     }
 
     @Override
-    public void persist(CustomerMem customerMem) {
-        customerQueueMemDao.persist(customerMem);
+    public boolean hasMarkedNext() {
+        return super.exists(Filter.eq("nextMark", 1));
+    }
+
+    @Override
+    public void addNextMark(CustomerMem customerMem) {
+
+    }
+
+    @Override
+    public List<CustomerMem> getMarkedNext() {
+        List<Filter> filters = new ArrayList<Filter>();
+        filters.add(Filter.eq("nextMark", 1));
+        List<Order> orders = new ArrayList<Order>();
+        orders.add(Order.desc("createdDate"));
+        return super.findList(1, filters, orders);
     }
 
     @Override
