@@ -3,8 +3,8 @@
         "http://getahead.org/dwr/dwr30.dtd">
 <dwr>
     <allow>
-        <create creator="new" javascript="MessagePush">
-            <param name="class" value="com.cashway.common.VtcDwrServlet" />
+        <create creator="new" javascript="MessagePushService">
+            <param name="class" value="com.cashway.service.impl.MessagePushServiceImpl" />
         </create>
     </allow>
 </dwr>

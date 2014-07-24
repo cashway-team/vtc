@@ -11,7 +11,7 @@
     <title><%=SpringUtils.getMessage("admin.index.title")%></title>
     <script type="text/javascript" src="${ctx}/dwr/engine.js"></script>
     <script type="text/javascript" src="${ctx}/dwr/util.js"></script>
-    <script type="text/javascript" src="${ctx}/dwr/interface/MessagePush.js"></script>
+    <script type="text/javascript" src="${ctx}/dwr/interface/MessagePushService.js"></script>
     <script type="text/javascript" src="${ctx}/resources/admin/js/jquery.js"></script>
     <link href="${ctx}/resources/admin/css/common.css" rel="stylesheet" type="text/css"/>
     <style type="text/css">
@@ -23,7 +23,6 @@
     </style>
 
     <script type="text/javascript" language="JavaScript">
-//        var j$ = jQuery.noConflict();
         $(document).ready(function () {
             dwr.engine.setActiveReverseAjax(true);
             dwr.engine.setNotifyServerOnPageUnload(true);
@@ -33,6 +32,11 @@
             alert(msg);
         }
 
+        function testDWR() {
+            MessagePushService.testDwrService("param", function(data) {
+                alert(data);
+            });
+        }
 
     </script>
 
@@ -53,7 +57,7 @@
         <td>
             <input type="button" value="签到" />
             <input type="button" value="签出" />
-            <input type="button" value="签到" />
+            <input type="button" value="测试DWR" onclick="javascript:testDWR();"/>
 
         </td>
     </tr>
